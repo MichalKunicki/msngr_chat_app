@@ -1,6 +1,5 @@
 import React from 'react'
-
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { AuthProvider } from '../contexts/AuthContext'
 
@@ -10,14 +9,14 @@ import Login from './Login'
 function App() {
   return (
     <div style={{ fontFamily: 'Avenir' }}>
-      <Router>
+      <BrowserRouter>
         <AuthProvider>
-          <Switch>
-            <Route path="/chats" component={Chats} />
-            <Route path="/" component={Login} />
-          </Switch>
+          <Routes>
+            <Route path="/chats" element={<Chats />} />
+            <Route path="/" element={<Login />} />
+          </Routes>
         </AuthProvider>
-      </Router>
+      </BrowserRouter>
     </div>
   )
 }
